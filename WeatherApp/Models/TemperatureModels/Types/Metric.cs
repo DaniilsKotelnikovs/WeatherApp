@@ -1,6 +1,6 @@
-﻿namespace WeatherApp.Model.TemperatureModels.Types
+﻿namespace WeatherApp.Models.TemperatureModels.Types
 {
-    public class Imperial
+    public class Metric
     {
         public int Value { get; set; }
         public string Unit { get; set; }

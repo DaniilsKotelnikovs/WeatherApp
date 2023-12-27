@@ -1,4 +1,4 @@
-﻿namespace WeatherApp.Model
+﻿namespace WeatherApp.Models
 {
     public class Area
     {

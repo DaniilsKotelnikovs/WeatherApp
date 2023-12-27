@@ -1,6 +1,6 @@
-﻿using WeatherApp.Model.TemperatureModels.Types;
+﻿using WeatherApp.Models.TemperatureModels.Types;
 
-namespace WeatherApp.Model
+namespace WeatherApp.Models
 {
     public class Temperature
     {
