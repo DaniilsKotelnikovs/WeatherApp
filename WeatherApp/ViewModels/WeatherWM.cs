@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using WeatherApp.Models;
 using WeatherApp.Models.TemperatureModels.Types;
+using WeatherApp.ViewModels.Helpers;
 
 namespace WeatherApp.ViewModels
 {
@@ -65,6 +66,11 @@ namespace WeatherApp.ViewModels
                     }
                 };
             }
+        }
+
+        public async void MakeQuery()
+        {
+            var cities = await AccuWeatherHelper.GetCities(Query);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
