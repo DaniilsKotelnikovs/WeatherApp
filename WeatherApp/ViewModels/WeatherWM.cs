@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
+using WeatherApp.Models;
 
 namespace WeatherApp.ViewModels
 {
     public class WeatherWM : INotifyPropertyChanged
     {
-        private string? query;
+        private string query = string.Empty;
 
-        public string? Query
+        public string Query
 
         {
             get { return query; }
@@ -16,6 +17,33 @@ namespace WeatherApp.ViewModels
                 OnPropertyChanged("Query");
             }
         }
+
+        private CurrentConditions? currentConditions;
+
+        public CurrentConditions? CurrentConditions
+        {
+            get { return currentConditions; }
+            set 
+            {
+                currentConditions = value;
+                OnPropertyChanged("CurrentConditions");
+            }
+        }
+
+        private City selectedCity;
+
+        public City SelectedCity
+        {
+            get { return selectedCity; }
+            set 
+            { 
+                selectedCity = value;
+                OnPropertyChanged("SelectedCity");
+            }
+        }
+
+
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
