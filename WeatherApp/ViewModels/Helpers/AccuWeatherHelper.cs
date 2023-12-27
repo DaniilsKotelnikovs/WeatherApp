@@ -7,7 +7,7 @@ using WeatherApp.Models;
 
 namespace WeatherApp.ViewModels.Helpers
 {
-    public class AccuWeatherHelper
+    public static class AccuWeatherHelper
     {
         public const string BASE_URL = "http://dataservice.accuweather.com/";
         public const string AUTOCOMPLETE_ENDPOINT = "locations/v1/cities/autocomplete?apikey={0}n&q={1}";
