@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using WeatherApp.Models;
+using WeatherApp.Models.TemperatureModels.Types;
 
 namespace WeatherApp.ViewModels
 {
@@ -42,8 +43,29 @@ namespace WeatherApp.ViewModels
             }
         }
 
+        public WeatherWM()
+        {
+            if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
+            {
 
+                SelectedCity = new City
+                {
+                    LocalizedName = "New York"
+                };
 
+                CurrentConditions = new CurrentConditions
+                {
+                    WeatherText = "Partly cloudy",
+                    Temperature = new Temperature
+                    {
+                        Metric = new Units
+                        {
+                            Value = 21
+                        }
+                    }
+                };
+            }
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
