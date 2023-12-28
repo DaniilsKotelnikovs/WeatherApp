@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using WeatherApp.Models;
 using WeatherApp.Models.TemperatureModels.Types;
 using WeatherApp.ViewModels.Commands;
@@ -20,6 +21,8 @@ namespace WeatherApp.ViewModels
                 OnPropertyChanged("Query");
             }
         }
+
+        public ObservableCollection<City> Cities { get; set; }
 
         private CurrentConditions? currentConditions;
 
@@ -71,11 +74,19 @@ namespace WeatherApp.ViewModels
             }
 
             SearchCommand = new SearchCommand(this);
+            Cities = new ObservableCollection<City>();
         }
 
         public async void MakeQuery()
         {
             var cities = await AccuWeatherHelper.GetCities(Query);
+
+            Cities.Clear();
+
+            foreach(City city in cities)
+            {
+                cities.Add(city);
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
