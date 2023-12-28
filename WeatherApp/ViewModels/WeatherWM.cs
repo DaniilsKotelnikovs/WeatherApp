@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using WeatherApp.Models;
 using WeatherApp.Models.TemperatureModels.Types;
+using WeatherApp.ViewModels.Commands;
 using WeatherApp.ViewModels.Helpers;
 
 namespace WeatherApp.ViewModels
@@ -44,6 +45,8 @@ namespace WeatherApp.ViewModels
             }
         }
 
+        public SearchCommand SearchCommand { get; set; }
+
         public WeatherWM()
         {
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
@@ -66,6 +69,8 @@ namespace WeatherApp.ViewModels
                     }
                 };
             }
+
+            SearchCommand = new SearchCommand(this);
         }
 
         public async void MakeQuery()
