@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -25,7 +26,14 @@ namespace WeatherApp.ViewModels.Helpers
                 var response = await client.GetAsync(url);
                 string json = await response.Content.ReadAsStringAsync();
 
-                cities = JsonConvert.DeserializeObject<List<City>>(json);
+                try
+                {
+                    cities = JsonConvert.DeserializeObject<List<City>>(json);
+                }
+                catch(Exception exception)
+                {
+                    return cities;
+                }
             }
 
             return cities;
@@ -42,7 +50,14 @@ namespace WeatherApp.ViewModels.Helpers
                 var response = await client.GetAsync(url);
                 string json = await response.Content.ReadAsStringAsync();
 
-                currrentConditions = (JsonConvert.DeserializeObject<List<CurrentConditions>>(json)).FirstOrDefault();
+                try
+                {
+                    currrentConditions = (JsonConvert.DeserializeObject<List<CurrentConditions>>(json)).FirstOrDefault();
+                }
+                catch(Exception exception)
+                {
+                    return currrentConditions;
+                }
             }
 
             return currrentConditions;
